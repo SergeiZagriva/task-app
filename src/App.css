@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    height: 100%;
+}
+
+body {
+    background-color: #121212;
+}
+
+h1 {
+    color: #BDC3C7;
+}
+
+.taskboard {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.6rem;
+}
+
+.taskColumnUpcoming, .taskColumnCurrent, .taskColumnComplete {
+    text-align: center;
+    padding: 1rem;
+    width: 30%;
+    border-radius: 10px;
+}
+
+.taskColumnUpcoming {
+    background-color: #8E44AD
+}
+
+.taskColumnCurrent {
+    background-color: #34495E;
+}
+
+.taskColumnComplete{
+    background-color: #27AE60;
+}
+
+.taskItem {
+    text-align: center;
+    padding: 1rem;
+    background-color: #2D3436;
+    border: 1px solid #636E72; 
+    color: #E0E0E0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    border-radius: 10px;
+    overflow-wrap: break-word; 
+    word-break: break-all;
+    position: relative;
+}
+
+#newUpcomingTaskInput, #newCurrentTaskInput {
+    text-align: center;
+    padding: 1rem;
+    background-color: #7F8C8D;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+#taskInput:focus {
+    outline: none;
+    background-color: #2980B9; /* Focus effect */
+}
+
+.taskItem button {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 10px;
+    top: 50%; 
+    right: 0.5rem; 
+    transform: translateY(-50%);
+    background-color: #E74C3C; 
+    border: none;
+    color: #E0E0E0;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    visibility: hidden;  
+    opacity: 0;          
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+.taskItem:hover button {
+    visibility: visible;
+    opacity: 1;   
+}
+
+.taskItem:hover {
+    background-color: #C0392B; 
+}
