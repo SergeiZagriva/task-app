@@ -14,16 +14,34 @@ body {
 
 h1 {
     color: #BDC3C7;
+    font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+    text-align: center;
+    margin: 0;
+    font-size: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
 .taskboard {
     display: flex;
     justify-content: space-around;
     padding: 0.6rem;
+    padding-top: 3rem;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    margin-top: 0.5rem;
 }
 
 .taskColumnUpcoming, .taskColumnCurrent, .taskColumnComplete {
-    text-align: center;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     padding: 1rem;
     width: 30%;
     border-radius: 10px;
@@ -42,6 +60,7 @@ h1 {
 }
 
 .taskItem {
+    width: 100%; 
     text-align: center;
     padding: 1rem;
     background-color: #2D3436;
@@ -65,7 +84,9 @@ h1 {
     border: none;
     font-size: 1rem;
     color: white;
-    margin-bottom: 1rem;
+    margin-bottom: 0.3rem;
+    resize: vertical;
+    min-height: 3rem;
 }
 
 #taskInput:focus {
@@ -73,13 +94,13 @@ h1 {
     background-color: #2980B9; /* Focus effect */
 }
 
-.taskItem button {
+.deleteButton {
     position: absolute;
     width: 2rem;
     height: 2rem;
     border-radius: 10px;
     top: 50%; 
-    right: 0.5rem; 
+    left: 0.5rem; 
     transform: translateY(-50%);
     background-color: #E74C3C; 
     border: none;
@@ -92,6 +113,57 @@ h1 {
     transition: visibility 0s, opacity 0.3s ease;
 }
 
+.completeTaskButton {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 10px;
+    top: 50%; 
+    right: 0.5rem; 
+    transform: translateY(-50%);
+    background-color: #27AE60; 
+    border: none;
+    color: #E0E0E0;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    visibility: hidden;  
+    opacity: 0;          
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+.moveToCurrentButton {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 10px;
+    top: 50%; 
+    right: 0.5rem; 
+    transform: translateY(-50%);
+    background-color: #27AE60; 
+    border: none;
+    color: #E0E0E0;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    visibility: hidden;  
+    opacity: 0;          
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+
+.addTaskButton {
+    background-color: #4a90e2; 
+    color: white; 
+    border: none; 
+    border-radius: 8px;
+    padding: 0.7rem 1.5rem; 
+    font-size: 1rem; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+    margin-top: 0;
+}
+
 .taskItem:hover button {
     visibility: visible;
     opacity: 1;   
@@ -99,4 +171,18 @@ h1 {
 
 .taskItem:hover {
     background-color: #C0392B; 
+}
+
+.addTaskButton:hover {
+    background-color: #357ABD;
+}
+
+#newUpcomingTaskInput, #newCurrentTaskInput:focus {
+    outline: none;
+}
+
+@media (max-width: 600px) {
+    .taskColumn h1 {
+        font-size: 1.2rem;
+    }
 }
